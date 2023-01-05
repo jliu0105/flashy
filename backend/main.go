@@ -24,7 +24,7 @@ func main() {
 	app.StaticWeb("/assets", "./backend/web/assets")
 	// jump to certain page then there's an error
 	app.OnAnyErrorCode(func(ctx iris.Context) {
-		ctx.ViewData("message", ctx.Values().GetStringDefault("message", "访问的页面出错！"))
+		ctx.ViewData("message", ctx.Values().GetStringDefault("message", "Page error！"))
 		ctx.ViewLayout("")
 		ctx.View("shared/error.html")
 	})
